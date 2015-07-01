@@ -1,0 +1,26 @@
+Kurze Beschreibung der Dateien:
+
+- terminal-session.txt:
+ 
+  Copy-and-paste Inhalt des Textterminals, in dem Python und 
+  py.test in der Aufnahme aufgerufen wurden.
+
+- lib-v1.py:  (lies als "lib.py, version 1")
+
+  Ursprüngliche Datei, nur Code der Funktion f
+
+- lib-v2.py: ("lib.py, version 2")
+
+  Erweitert mit Testfunktion test_f
+
+- lib-v3.py:
+
+  Testfunktionen in Klassen aufgeteilt
+
+- lib-v4.py:
+
+  Nach Refaktoringdemonstration 
+
+- info.txt: 
+
+  Diese Datei
