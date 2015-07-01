@@ -1,0 +1,97 @@
+dhcp-126-92:softwaretesten fangohr$ python -i lib.py 
+>>> f
+<function f at 0x1003bebf8>
+>>> f(1)
+1
+>>> f(0)
+0
+>>> f(-10)
+-1
+>>> f(3)
+6
+>>> f(3) == 6
+True
+>>> f(3) == 0 + 1 + 2 + 3
+True
+>>> assert f(3) == 0 + 1 + 2 + 3
+>>> 
+>>> 
+dhcp-126-92:softwaretesten fangohr$ python -i lib.py 
+>>> test_f()
+>>> 
+dhcp-126-92:softwaretesten fangohr$ py.test -v lib.py
+================================= test session starts ==================================
+platform darwin -- Python 3.4.3 -- py-1.4.26 -- pytest-2.6.4 -- /Users/fangohr/anaconda3/bin/python3
+collected 1 items 
+
+lib.py::test_f PASSED
+
+=============================== 1 passed in 0.02 seconds ===============================
+dhcp-126-92:softwaretesten fangohr$ py.test -v lib.py
+================================= test session starts ==================================
+platform darwin -- Python 3.4.3 -- py-1.4.26 -- pytest-2.6.4 -- /Users/fangohr/anaconda3/bin/python3
+collected 1 items 
+
+lib.py::test_f FAILED
+
+======================================= FAILURES =======================================
+________________________________________ test_f ________________________________________
+
+    def test_f():
+        assert f(3) == 0 + 1 + 2 + 3
+        assert f(0) == 0
+>       assert f(-10) == -2
+E       assert -1 == -2
+E        +  where -1 = f(-10)
+
+lib.py:19: AssertionError
+=============================== 1 failed in 0.02 seconds ===============================
+dhcp-126-92:softwaretesten fangohr$ py.test -v lib.py
+================================= test session starts ==================================
+platform darwin -- Python 3.4.3 -- py-1.4.26 -- pytest-2.6.4 -- /Users/fangohr/anaconda3/bin/python3
+collected 3 items 
+
+lib.py::test_f_positive PASSED
+lib.py::test_f_negative PASSED
+lib.py::test_f_grenzfall PASSED
+
+=============================== 3 passed in 0.02 seconds ===============================
+dhcp-126-92:softwaretesten fangohr$ py.test -v lib.py
+================================= test session starts ==================================
+platform darwin -- Python 3.4.3 -- py-1.4.26 -- pytest-2.6.4 -- /Users/fangohr/anaconda3/bin/python3
+collected 3 items 
+
+lib.py::test_f_positive PASSED
+lib.py::test_f_negative FAILED
+lib.py::test_f_grenzfall FAILED
+
+======================================= FAILURES =======================================
+___________________________________ test_f_negative ____________________________________
+
+    def test_f_negative():
+>       assert f(-20) == -1
+E       assert 190.0 == -1
+E        +  where 190.0 = f(-20)
+
+lib.py:14: AssertionError
+___________________________________ test_f_grenzfall ___________________________________
+
+    def test_f_grenzfall():
+        assert f(0) == 0
+>       assert f(-1) == -1
+E       assert 0.0 == -1
+E        +  where 0.0 = f(-1)
+
+lib.py:19: AssertionError
+========================== 2 failed, 1 passed in 0.02 seconds ==========================
+dhcp-126-92:softwaretesten fangohr$ py.test -v lib.py
+================================= test session starts ==================================
+platform darwin -- Python 3.4.3 -- py-1.4.26 -- pytest-2.6.4 -- /Users/fangohr/anaconda3/bin/python3
+collected 3 items 
+
+lib.py::test_f_positive PASSED
+lib.py::test_f_negative PASSED
+lib.py::test_f_grenzfall PASSED
+
+=============================== 3 passed in 0.02 seconds ===============================
+dhcp-126-92:softwaretesten fangohr$ 
